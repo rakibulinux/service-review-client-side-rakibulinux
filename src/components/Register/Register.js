@@ -3,9 +3,10 @@ import { Helmet } from "react-helmet";
 import { AuthContext } from "../../contexts/AuthProvider";
 import loginpage from "../../assets/loginpage.svg";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Register = () => {
-  const {} = useContext(AuthContext);
+  const { createUserAccount, updateUserAccount } = useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     name: "",
     photoURL: "",
@@ -27,6 +28,17 @@ const Register = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    createUserAccount().then((result) => {
+      const user = result.user;
+      updateUserAccount(name, photoURL)
+        .then(() => {
+          toast.success("Profile Update Successfully");
+        })
+        .catch((err) => {
+          toast.error(err.message);
+        });
+      toast.success(user?.displayName, "Account create success");
+    });
   };
 
   return (
