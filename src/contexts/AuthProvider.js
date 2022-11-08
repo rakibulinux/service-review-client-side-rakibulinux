@@ -15,6 +15,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
+  const [services, setServices] = useState([]);
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,6 +48,11 @@ const AuthProvider = ({ children }) => {
       return () => unSebscribe();
     };
   }, []);
+  useEffect(() => {
+    fetch("https://service-review-gamma.vercel.app/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
   const authInfo = {
     user,
     loading,
@@ -54,6 +60,7 @@ const AuthProvider = ({ children }) => {
     loginUserAccount,
     updateUserAccount,
     loginWithGoogle,
+    services,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

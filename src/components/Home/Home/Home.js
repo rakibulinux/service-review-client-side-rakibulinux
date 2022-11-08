@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Banner from "../../Banner/Banner";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import ServiceItem from "../ServiceItems/ServiceItem";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const { services } = useContext(AuthContext);
+  console.log(services);
   return (
     <div className="my-6">
       <Helmet>
@@ -10,6 +15,12 @@ const Home = () => {
       </Helmet>
       <div className="">
         <Banner />
+      </div>
+      <div>
+        {services.map((service) => (
+          <ServiceItem key={service._id} service={service} />
+        ))}
+        <Link to="/services">See All</Link>
       </div>
     </div>
   );
