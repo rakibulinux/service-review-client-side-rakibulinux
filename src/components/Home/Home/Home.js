@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const { services } = useContext(AuthContext);
-  console.log(services);
   return (
     <div className="my-6">
       <Helmet>

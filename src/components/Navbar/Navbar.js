@@ -17,31 +17,66 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink to="/home">Home</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-green-250" : "")}
+          to="/home"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/services">Services</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-green-250" : "")}
+          to="/services"
+        >
+          Services
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/blog">Blog</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-green-250" : "")}
+          to="/blog"
+        >
+          Blog
+        </NavLink>
       </li>
 
       {!user?.uid ? (
         <>
           <li>
-            <NavLink to="/login">LogIn</NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-green-250" : "")}
+              to="/login"
+            >
+              LogIn
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/register">Register</NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-green-250" : "")}
+              to="/register"
+            >
+              Register
+            </NavLink>
           </li>
         </>
       ) : (
         <>
           <li>
-            <NavLink to="/my-reviews">My Reviews</NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-green-250" : "")}
+              to="/my-reviews"
+            >
+              My Reviews
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/add-service">Add Service</NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-green-250" : "")}
+              to="/add-service"
+            >
+              Add Service
+            </NavLink>
           </li>
           <li>
             <button onClick={handleLogOut}>SignOut</button>
@@ -92,13 +127,19 @@ const Navbar = () => {
         <div className="hidden lg:flex">
           <ul className="flex gap-5 font-bold">{navItems}</ul>
         </div>
-        {/* <div className="ml-3">
-          <NavLink to="/my-reviews">
+        <div className="ml-3">
+          <img
+            className="w-8 h-8 rounded-full"
+            src={user?.photoURL}
+            alt=""
+            title={user?.displayName}
+          />
+          {/* <NavLink to="/my-reviews">
             <button className="bg-green-250 hover:bg-green-350 py-2 px-4 rounded-3xl text-white font-bold">
               Review Us
             </button>
-          </NavLink>
-        </div> */}
+          </NavLink> */}
+        </div>
       </div>
     </div>
   );
