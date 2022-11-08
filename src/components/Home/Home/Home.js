@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Banner from "../../Banner/Banner";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import ServiceItem from "../ServiceItems/ServiceItem";
+import ServiceHome from "../ServiceHome/ServiceHome";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
       </div>
       <div>
         {services.map((service) => (
-          <ServiceItem key={service._id} service={service} />
+          <ServiceHome key={service._id} service={service} />
         ))}
         <Link to="/services">See All</Link>
       </div>
