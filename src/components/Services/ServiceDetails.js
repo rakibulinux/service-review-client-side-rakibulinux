@@ -4,19 +4,18 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
   const { img, price, _id, description, title } = useLoaderData();
-  console.log(img, price, _id, description, title);
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+    <div className="bg-base-100 shadow-2xl grid sm:grid-cols-1 md:grid-cols-2">
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} style={{ objectFit: "cover" }} alt="" />
+            <img src={img} style={{ objectFit: "cover" }} alt={title} />
           </PhotoView>
         </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="text-2xl font-bold text-blue-950">{title}</h2>
-        <p>{description.slice(0, 100)}...</p>
+        <p>{description}</p>
         <div className="card-actions justify-between items-center">
           <span className="text-2xl text-green-450">Price: ${price}</span>
           <Link to={`/services/${_id}`}>

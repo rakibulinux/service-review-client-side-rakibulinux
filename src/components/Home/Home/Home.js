@@ -16,11 +16,18 @@ const Home = () => {
       <div className="">
         <Banner />
       </div>
-      <div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 gap-5">
         {services.map((service) => (
           <ServiceHome key={service._id} service={service} />
         ))}
-        <Link to="/services">See All</Link>
+      </div>
+      <div className="flex justify-center">
+        <Link
+          className="text-center bg-green-250 text-white text-xl font-medium py-3 px-3 rounded-3xl"
+          to="/services"
+        >
+          See All
+        </Link>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="items-center grid-flow-col">
         <Link className="normal-case text-2xl flex items-center font-bold">
           <img src={OrderReview} alt="charity" className="h-7 mr-3" />
-          Service Review
+          Order Review
         </Link>
         <p>Copyright © 2022 - All right reserved</p>
       </div>

@@ -1,31 +1,53 @@
-import React from "react";
+import React, { useContext } from "react";
 import OrderReview from "../../assets/OrderReview.png";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 const Navbar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  const handleLogOut = () => {
+    console.log("I will work");
+  };
   const navItems = (
     <>
       <li>
         <NavLink to="/home">Home</NavLink>
       </li>
       <li>
-        <NavLink>Events</NavLink>
+        <NavLink to="/services">Services</NavLink>
       </li>
       <li>
         <NavLink to="/blog">Blog</NavLink>
       </li>
-      <li>
-        <NavLink>LogIn</NavLink>
-      </li>
-      <li>
-        <NavLink>Register</NavLink>
-      </li>
+
+      {!user?.uid ? (
+        <>
+          <li>
+            <NavLink to="/login">LogIn</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+          <li>
+            <button onClick={handleLogOut}>SignOut</button>
+          </li>
+        </>
+      )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 w-11/12 mx-auto flex shadow-2xl justify-between mb-5">
+    <div className="navbar bg-base-100 w-11/12 mx-auto flex shadow-2xl justify-between mb-5 text-blue-950">
       <div className="">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label
+            tabIndex={0}
+            className="btn bg-green-250 hover:bg-green-350 border-none lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -48,18 +70,21 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link className="normal-case text-2xl flex items-center font-bold">
+        <NavLink
+          to="/"
+          className="normal-case text-2xl flex items-center font-bold"
+        >
           <img src={OrderReview} alt="charity" className="h-7 mr-3" />
           Order Review
-        </Link>
+        </NavLink>
       </div>
       <div>
         <div className="hidden lg:flex">
           <ul className="flex gap-5 font-bold">{navItems}</ul>
         </div>
         <div className="ml-3">
-          <button className="bg-green-250 hover:bg-pink-600 py-2 px-4 rounded-3xl text-white font-bold">
-            Donate Now
+          <button className="bg-green-250 hover:bg-green-350 py-2 px-4 rounded-3xl text-white font-bold">
+            Review Us
           </button>
         </div>
       </div>
