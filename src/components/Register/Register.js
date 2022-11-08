@@ -1,0 +1,65 @@
+import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
+import { AuthContext } from "../../contexts/AuthProvider";
+const Register = () => {
+  const {} = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    photoURL: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div>
+      <Helmet>
+        <title>Register | Order Review</title>
+      </Helmet>
+      <div className="hero bg-base-200 w-11/12 mx-auto text-blue-950">
+        <div className="hero-content grid sm:grid-cols-1 md:grid-cols-2">
+          <div className="text-center lg:text-left">
+            <img className="" src={loginpage} alt="" />
+          </div>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mb-5">
+            <div className="card-body">
+              <h2 className="text-3xl text-center font-bold ">Register Now</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input
+                    defaultValue={email}
+                    onChange={handleEmailChange}
+                    type="text"
+                    placeholder="email"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    defaultValue={password}
+                    onChange={handlePasswordChange}
+                    type="text"
+                    placeholder="password"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control mt-6">
+                  <button className="btn bg-green-250 hover:bg-green-350 rounded-3xl border-none">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Register;

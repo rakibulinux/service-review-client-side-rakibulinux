@@ -1,26 +1,26 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ServiceDetails = () => {
-  const { img, price, _id, description, title } = useLoaderData();
+const ServicesAll = ({ services }) => {
+  const { img, price, _id, description, title } = services;
   return (
-    <div className="bg-base-100 shadow-2xl grid sm:grid-cols-1 md:grid-cols-2">
+    <div className="card card-compact w-96 bg-base-100 shadow-2xl">
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} style={{ objectFit: "cover" }} alt={title} />
+            <img src={img} style={{ objectFit: "cover" }} alt="" />
           </PhotoView>
         </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="text-2xl font-bold text-blue-950">{title}</h2>
-        <p>{description}</p>
+        <p>{description.slice(0, 100)}...</p>
         <div className="card-actions justify-between items-center">
           <span className="text-2xl text-green-450">Price: ${price}</span>
           <Link to={`/services/${_id}`}>
             <button className="btn bg-green-250 hover:bg-green-350 border-none">
-              Buy Now
+              View Details
             </button>
           </Link>
         </div>
@@ -29,4 +29,4 @@ const ServiceDetails = () => {
   );
 };
 
-export default ServiceDetails;
+export default ServicesAll;

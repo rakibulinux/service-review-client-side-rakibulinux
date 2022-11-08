@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { AuthContext } from "../../contexts/AuthProvider";
-import ServicesAll from "./ServicesAll";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import ServicesAll from "../ServicesAll/ServicesAll";
 const Services = () => {
   const { servicesAll } = useContext(AuthContext);
   return (

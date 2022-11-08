@@ -20,7 +20,7 @@ const ServiceItem = ({ service }) => {
           <span className="text-2xl text-green-450">Price: ${price}</span>
           <Link to={`/services/${_id}`}>
             <button className="btn bg-green-250 hover:bg-green-350 border-none">
-              Buy Now
+              View Details
             </button>
           </Link>
         </div>

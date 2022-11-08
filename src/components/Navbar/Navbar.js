@@ -31,7 +31,10 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/my-reviews">My Reviews</NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-service">Add Service</NavLink>
           </li>
           <li>
             <button onClick={handleLogOut}>SignOut</button>
