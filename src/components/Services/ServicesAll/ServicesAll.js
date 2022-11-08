@@ -5,11 +5,16 @@ import { Link } from "react-router-dom";
 const ServicesAll = ({ services }) => {
   const { img, price, _id, description, title } = services;
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+    <div className="card card-compact w-96 mx-auto bg-base-100 shadow-2xl">
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} style={{ objectFit: "cover" }} alt="" />
+            <img
+              className="h-96"
+              src={img}
+              style={{ objectFit: "cover" }}
+              alt=""
+            />
           </PhotoView>
         </PhotoProvider>
       </figure>

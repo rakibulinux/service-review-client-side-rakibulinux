@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
 
-  const handlePlaceOrder = (event) => {
+  const handlePlaceService = (event) => {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value;
@@ -33,15 +34,20 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success("Order placed successfully");
+          toast.success("New service added");
           form.reset();
         }
       })
-      .catch((er) => console.error(er));
+      .catch((er) => {
+        toast.error(er.message);
+      });
   };
   return (
     <div>
-      <form onSubmit={handlePlaceOrder}>
+      <Helmet>
+        <title>Add Service | Order Review</title>
+      </Helmet>
+      <form onSubmit={handlePlaceService}>
         {/* <h2 className="text-4xl">You are about to order: {title}</h2>
         <h4 className="text-3xl">Price: {price}</h4> */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -78,7 +84,7 @@ const AddService = () => {
         <textarea
           name="description"
           className="textarea textarea-bordered h-24 w-full my-5"
-          placeholder="Your description"
+          placeholder="Your Service description"
           required
         ></textarea>
         <div className="flex justify-center">
