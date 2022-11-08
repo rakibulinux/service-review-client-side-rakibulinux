@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import errorPage404 from "../../assets/errorPage.png";
+
 const ErrorPage = () => {
   return (
     <section className="flex items-center h-screen p-16 bg-green-100 text-green-250">
