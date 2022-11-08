@@ -1,5 +1,5 @@
 import React from "react";
-import review from "../../assets/reviews.png";
+import OrderReview from "../../assets/OrderReview.png";
 import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const navItems = (
@@ -49,8 +49,8 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="normal-case text-2xl flex items-center font-bold">
-          <img src={review} alt="charity" className="h-7 mr-3" />
-          Service Review
+          <img src={OrderReview} alt="charity" className="h-7 mr-3" />
+          Order Review
         </Link>
       </div>
       <div>

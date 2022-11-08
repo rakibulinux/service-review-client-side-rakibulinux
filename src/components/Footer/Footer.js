@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import review from "../../assets/reviews.png";
+import OrderReview from "../../assets/OrderReview.png";
 
 const Footer = () => {
   return (
     <footer className="footer items-center p-4 bg-green-250 text-neutral-content">
       <div className="items-center grid-flow-col">
         <Link className="normal-case text-2xl flex items-center font-bold">
-          <img src={review} alt="charity" className="h-7 mr-3" />
+          <img src={OrderReview} alt="charity" className="h-7 mr-3" />
           Service Review
         </Link>
         <p>Copyright © 2022 - All right reserved</p>
