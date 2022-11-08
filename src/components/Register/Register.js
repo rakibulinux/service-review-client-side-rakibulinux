@@ -1,15 +1,34 @@
 import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../contexts/AuthProvider";
+import loginpage from "../../assets/loginpage.svg";
+import { Link } from "react-router-dom";
+
 const Register = () => {
   const {} = useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     name: "",
     photoURL: "",
+    email: "",
+    password: "",
   });
+  const { name, photoURL, email, password } = userInfo;
+  const handleNameChange = (e) => {
+    setUserInfo({ ...userInfo, name: e.target.value });
+  };
+  const handlePhotoURLChange = (e) => {
+    setUserInfo({ ...userInfo, photoURL: e.target.value });
+  };
+  const handleEmailChange = (e) => {
+    setUserInfo({ ...userInfo, email: e.target.value });
+  };
+  const handlePasswordChange = (e) => {
+    setUserInfo({ ...userInfo, password: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
   return (
     <div>
       <Helmet>
@@ -26,13 +45,37 @@ const Register = () => {
               <form onSubmit={handleSubmit}>
                 <div className="form-control">
                   <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    defaultValue={name}
+                    onChange={handleNameChange}
+                    type="text"
+                    placeholder="Your name"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">PhotoURL</span>
+                  </label>
+                  <input
+                    defaultValue={photoURL}
+                    onChange={handlePhotoURLChange}
+                    type="text"
+                    placeholder="Your photoURL"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
                     defaultValue={email}
                     onChange={handleEmailChange}
                     type="text"
-                    placeholder="email"
+                    placeholder="Your email"
                     className="input input-bordered"
                   />
                 </div>
@@ -44,7 +87,7 @@ const Register = () => {
                     defaultValue={password}
                     onChange={handlePasswordChange}
                     type="text"
-                    placeholder="password"
+                    placeholder="Your password"
                     className="input input-bordered"
                   />
                 </div>
@@ -54,6 +97,12 @@ const Register = () => {
                   </button>
                 </div>
               </form>
+              <div className="my-10">
+                <span>Already have an account? </span>
+                <Link className="text-green-250 font-semibold" to="/login">
+                  Login
+                </Link>
+              </div>
             </div>
           </div>
         </div>

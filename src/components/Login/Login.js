@@ -118,6 +118,12 @@ const Login = () => {
               <img className="w-6 mr-2" src={googleLogo} alt="" />{" "}
               <span className="font-semibold">Continue with Google</span>
             </button>
+            <div className="my-10">
+              <span>New to Online Order? </span>
+              <Link className="text-green-250 font-semibold" to="/register">
+                Register
+              </Link>
+            </div>
           </div>
         </div>
       </div>
