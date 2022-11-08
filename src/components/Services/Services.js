@@ -3,11 +3,9 @@ import { Helmet } from "react-helmet";
 import { AuthContext } from "../../contexts/AuthProvider";
 import ServicesAll from "./ServicesAll";
 const Services = () => {
-  const { servicesAll, loading } = useContext(AuthContext);
-  console.log(servicesAll);
-
+  const { servicesAll } = useContext(AuthContext);
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 gap-5">
       <Helmet>
         <title>Services | Order Review</title>
       </Helmet>

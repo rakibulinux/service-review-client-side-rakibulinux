@@ -1,9 +1,10 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-const ServicesAll = ({ services }) => {
-  const { img, price, _id, description, title } = services;
+const ServiceDetails = () => {
+  const { img, price, _id, description, title } = useLoaderData();
+  console.log(img, price, _id, description, title);
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-2xl">
       <figure>
@@ -29,4 +30,4 @@ const ServicesAll = ({ services }) => {
   );
 };
 
-export default ServicesAll;
+export default ServiceDetails;
