@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Banner from "../../Banner/Banner";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import ServiceHome from "../ServiceHome/ServiceHome";
 import { Link } from "react-router-dom";

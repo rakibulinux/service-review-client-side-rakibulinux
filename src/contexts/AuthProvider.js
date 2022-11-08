@@ -7,6 +7,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebaseConfig";
@@ -44,6 +45,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
+  const logOutUser = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   useEffect(() => {
     const unSebscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -72,6 +77,7 @@ const AuthProvider = ({ children }) => {
     updateUserAccount,
     loginWithGoogle,
     resetUserPassword,
+    logOutUser,
     services,
     servicesAll,
   };

@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
 import OrderReview from "../../assets/OrderReview.png";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const handleLogOut = () => {
-    console.log("I will work");
+    logOutUser()
+      .then(() => {
+        toast.success("User Logout success");
+      })
+      .catch(() => {
+        toast.error("User logout success");
+      });
   };
   const navItems = (
     <>

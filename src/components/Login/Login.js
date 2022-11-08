@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginpage from "../../assets/loginpage.svg";
 import { AuthContext } from "../../contexts/AuthProvider";

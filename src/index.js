@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import "react-photo-view/dist/react-photo-view.css";
 import AuthProvider from "./contexts/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <App />
-      <Toaster />
+      <HelmetProvider>
+        <App />
+        <Toaster />
+      </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>
 );

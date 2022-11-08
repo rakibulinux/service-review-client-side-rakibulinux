@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import ServicesAll from "../ServicesAll/ServicesAll";
 const Services = () => {

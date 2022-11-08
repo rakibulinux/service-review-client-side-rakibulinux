@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../contexts/AuthProvider";
 import loginpage from "../../assets/loginpage.svg";
 import { Link } from "react-router-dom";
@@ -28,19 +28,22 @@ const Register = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUserAccount().then((result) => {
-      const user = result.user;
-      updateUserAccount(name, photoURL)
-        .then(() => {
-          toast.success("Profile Update Successfully");
-        })
-        .catch((err) => {
-          toast.error(err.message);
-        });
-      toast.success(user?.displayName, "Account create success");
-    });
+    createUserAccount(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUserAccount(name, photoURL)
+          .then(() => {
+            toast.success("Profile Update Successfully");
+          })
+          .catch((err) => {
+            toast.error(err.message);
+          });
+        toast.success(user?.displayName, "Account create success");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
-
   return (
     <div>
       <Helmet>
@@ -105,7 +108,7 @@ const Register = () => {
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn bg-green-250 hover:bg-green-350 rounded-3xl border-none">
-                    Login
+                    Register
                   </button>
                 </div>
               </form>
