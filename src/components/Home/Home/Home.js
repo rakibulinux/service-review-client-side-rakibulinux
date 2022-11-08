@@ -29,6 +29,12 @@ const Home = () => {
           See All
         </Link>
       </div>
+      <div>
+        <h1 className="text-3xl">More Order 2</h1>
+      </div>
+      <div>
+        <h1 className="text-3xl">More Order 3</h1>
+      </div>
     </div>
   );
 };

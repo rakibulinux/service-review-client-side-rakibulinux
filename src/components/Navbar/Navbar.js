@@ -92,11 +92,13 @@ const Navbar = () => {
         <div className="hidden lg:flex">
           <ul className="flex gap-5 font-bold">{navItems}</ul>
         </div>
-        <div className="ml-3">
-          <button className="bg-green-250 hover:bg-green-350 py-2 px-4 rounded-3xl text-white font-bold">
-            Review Us
-          </button>
-        </div>
+        {/* <div className="ml-3">
+          <NavLink to="/my-reviews">
+            <button className="bg-green-250 hover:bg-green-350 py-2 px-4 rounded-3xl text-white font-bold">
+              Review Us
+            </button>
+          </NavLink>
+        </div> */}
       </div>
     </div>
   );
