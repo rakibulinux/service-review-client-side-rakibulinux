@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUserAccount, updateUserAccount, loading } =
+  const { createUserAccount, updateUserAccount, loading, setLoading } =
     useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -43,6 +43,9 @@ const Register = () => {
       })
       .catch((err) => {
         toast.error(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 

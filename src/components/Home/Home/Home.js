@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       <div className="flex justify-center">
         <Link
-          className="text-center bg-green-250 text-white text-xl font-medium py-3 px-3 rounded-3xl"
+          className="text-center bg-green-250 text-white text-xl font-medium py-2 px-5 rounded-3xl"
           to="/services"
         >
           See All

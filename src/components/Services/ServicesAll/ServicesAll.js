@@ -24,7 +24,7 @@ const ServicesAll = ({ services }) => {
         <div className="card-actions justify-between items-center">
           <span className="text-2xl text-green-450">Price: ${price}</span>
           <Link to={`/services/${_id}`}>
-            <button className="btn bg-green-250 hover:bg-green-350 border-none">
+            <button className="btn bg-green-250 hover:bg-green-350 rounded-3xl border-none">
               View Details
             </button>
           </Link>

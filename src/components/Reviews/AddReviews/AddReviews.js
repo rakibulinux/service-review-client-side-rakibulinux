@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
-const AddReviews = () => {
+const AddReviews = ({ _id, title }) => {
   const { user } = useContext(AuthContext);
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -10,12 +10,15 @@ const AddReviews = () => {
     const img = user?.photoURL;
     const email = user?.email || "unregistered";
     const description = form.description.value;
-
+    const reviewDate = new Date();
     const review = {
       name,
+      title,
+      service_id: _id,
       img,
       email,
       description,
+      reviewDate,
     };
 
     fetch("https://service-review-gamma.vercel.app/reviews/", {
