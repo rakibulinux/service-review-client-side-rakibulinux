@@ -11,9 +11,15 @@ const Reviews = ({ _id }) => {
   console.log(reviews);
   return (
     <div className="mt-5">
-      {reviews.map((review) => (
-        <ReviewDetails key={review._id} review={review} />
-      ))}
+      {reviews.length > 0 ? (
+        <>
+          {reviews.map((review) => (
+            <ReviewDetails key={review._id} review={review} />
+          ))}
+        </>
+      ) : (
+        <h1 className="ml-5 py-5">No review were added</h1>
+      )}
     </div>
   );
 };

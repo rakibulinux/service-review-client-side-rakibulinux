@@ -17,12 +17,23 @@ const MyReviews = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Review | Order Review</title>
+        <title>My Reviews | Order Review</title>
       </Helmet>
       <div className="mt-5">
-        {myUserreviews.map((review) => (
-          <MyReviewDetails key={review._id} review={review} />
-        ))}
+        <h2 className="text-3xl text-white text-center font-semibold mb-10 bg-green-250 w-9/12 mx-auto rounded-3xl py-5">
+          My Reviews
+        </h2>
+        {myUserreviews.length > 0 ? (
+          <>
+            {myUserreviews.map((review) => (
+              <MyReviewDetails key={review._id} review={review} />
+            ))}
+          </>
+        ) : (
+          <h1 className="ml-5 py-5">
+            No review were added for {user?.displayName} user
+          </h1>
+        )}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Home from "../components/Home/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import MyReviews from "../components/Reviews/MyReviews/MyReviews";
+import UpdateReview from "../components/Reviews/UpdateReview/UpdateReview";
 import AddService from "../components/Services/AddService/AddService";
 import ServiceDetails from "../components/Services/ServiceDetails/ServiceDetails";
 import Services from "../components/Services/Services/Services";
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
           fetch(
             `https://service-review-gamma.vercel.app/services/${params.id}`
           ),
+      },
+      {
+        path: "/update-review",
+        element: (
+          <PrivateRoute>
+            <UpdateReview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",

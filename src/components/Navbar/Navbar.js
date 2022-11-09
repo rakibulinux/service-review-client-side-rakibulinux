@@ -128,12 +128,14 @@ const Navbar = () => {
           <ul className="flex gap-5 font-bold">{navItems}</ul>
         </div>
         <div className="ml-3">
-          <img
-            className="w-8 h-8 rounded-full"
-            src={user?.photoURL}
-            alt=""
-            title={user?.displayName}
-          />
+          {user?.uid && (
+            <img
+              className="w-8 h-8 rounded-full"
+              src={user?.photoURL}
+              alt=""
+              title={user?.displayName}
+            />
+          )}
           {/* <NavLink to="/my-reviews">
             <button className="bg-green-250 hover:bg-green-350 py-2 px-4 rounded-3xl text-white font-bold">
               Review Us

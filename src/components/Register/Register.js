@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../contexts/AuthProvider";
 import loginpage from "../../assets/loginpage.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Register = () => {
@@ -14,6 +14,11 @@ const Register = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const { name, photoURL, email, password } = userInfo;
   const handleNameChange = (e) => {
     setUserInfo({ ...userInfo, name: e.target.value });
@@ -40,6 +45,7 @@ const Register = () => {
             toast.error(err.message);
           });
         toast.success(user?.displayName, "Account create success");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         toast.error(err.message);
