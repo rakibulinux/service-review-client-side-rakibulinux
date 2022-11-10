@@ -63,12 +63,12 @@ const AuthProvider = ({ children }) => {
     fetch("https://service-review-gamma.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, []);
+  }, [services]);
   useEffect(() => {
     fetch("https://service-review-gamma.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServicesAll(data));
-  }, []);
+  }, [servicesAll]);
   const authInfo = {
     user,
     loading,

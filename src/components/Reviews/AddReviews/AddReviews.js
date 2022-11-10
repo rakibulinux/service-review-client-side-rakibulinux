@@ -31,7 +31,6 @@ const AddReviews = ({ _id, title }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("New review added");
           form.reset();

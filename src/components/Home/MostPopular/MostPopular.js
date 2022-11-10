@@ -44,7 +44,12 @@ const MostPopular = ({ service }) => {
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} style={{ objectFit: "cover" }} alt="" />
+            <img
+              className="h-96"
+              src={img}
+              style={{ objectFit: "cover" }}
+              alt=""
+            />
           </PhotoView>
         </PhotoProvider>
       </figure>

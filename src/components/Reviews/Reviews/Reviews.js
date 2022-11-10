@@ -8,7 +8,6 @@ const Reviews = ({ _id }) => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [_id, reviews]);
-  console.log(reviews);
   return (
     <div className="mt-5">
       {reviews.length > 0 ? (

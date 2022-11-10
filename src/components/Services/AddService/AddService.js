@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
+  const { user } = useContext(AuthContext);
+
   const handlePlaceService = (event) => {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value;
     const img = form.img.value;
+    const email = user?.email || "unregistered";
     const price = form.price.value;
     const description = form.description.value;
     const serviceAddedDate = new Date();
     const service = {
       title,
+      email,
       img,
       price,
       description,
@@ -28,7 +33,6 @@ const AddService = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("New service added");
           form.reset();
@@ -39,7 +43,7 @@ const AddService = () => {
       });
   };
   return (
-    <div>
+    <div className=" w-10/12 mx-auto">
       <Helmet>
         <title>Add Service | Order Review</title>
       </Helmet>
@@ -68,14 +72,14 @@ const AddService = () => {
             className="input input-ghost w-full  input-bordered"
             required
           />
-          {/* <input
+          <input
             name="email"
             type="text"
             placeholder="Your email"
             defaultValue={user?.email}
             className="input input-ghost w-full  input-bordered"
             readOnly
-          /> */}
+          />
         </div>
         <textarea
           name="description"

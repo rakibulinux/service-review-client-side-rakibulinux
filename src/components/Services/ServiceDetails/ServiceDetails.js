@@ -15,7 +15,7 @@ const ServiceDetails = () => {
           <PhotoProvider>
             <PhotoView src={img}>
               <img
-                className="w-11/12"
+                className="w-11/12 h-[563.5px]"
                 src={img}
                 style={{ objectFit: "cover" }}
                 alt={title}

@@ -17,8 +17,7 @@ const MyReviews = () => {
     )
       .then((res) => res.json())
       .then((data) => setMyUserReviews(data));
-  }, [user?.email]);
-  // console.log(myUserReviews);
+  }, [user?.email, myUserReviews]);
   return (
     <div>
       <Helmet>
