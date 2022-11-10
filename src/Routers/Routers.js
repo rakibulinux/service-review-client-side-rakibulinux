@@ -39,12 +39,16 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/update-review",
+        path: "/update-review/:id",
         element: (
           <PrivateRoute>
             <UpdateReview />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://service-review-gamma.vercel.app/myreviews/${params.id}`
+          ),
       },
       {
         path: "/blog",

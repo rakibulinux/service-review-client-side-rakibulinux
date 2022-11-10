@@ -5,6 +5,7 @@ import loginpage from "../../assets/loginpage.svg";
 import { AuthContext } from "../../contexts/AuthProvider";
 import googleLogo from "../../assets/google.png";
 import toast from "react-hot-toast";
+import JWTAuthToken from "../../APIs/JWTAuthToken";
 
 const Login = () => {
   const { loginUserAccount, resetUserPassword, loginWithGoogle, loading } =
@@ -26,7 +27,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success(user.displayName);
-        navigate(from, { replace: true });
+        JWTAuthToken(user, navigate, from);
       })
       .catch((error) => {
         toast.error(error.message);

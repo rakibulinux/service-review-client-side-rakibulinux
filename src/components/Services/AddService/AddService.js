@@ -1,32 +1,28 @@
-import React, { useContext } from "react";
+import React from "react";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../../contexts/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
-  const { user } = useContext(AuthContext);
-
   const handlePlaceService = (event) => {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value;
     const img = form.img.value;
-    // const email = user?.email || "unregistered";
     const price = form.price.value;
     const description = form.description.value;
-
+    const serviceAddedDate = new Date();
     const service = {
       title,
       img,
       price,
       description,
+      serviceAddedDate,
     };
 
-    fetch("https://service-review-gamma.vercel.app/services/", {
+    fetch("https://service-review-gamma.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("genius-token")}`,
       },
       body: JSON.stringify(service),
     })
