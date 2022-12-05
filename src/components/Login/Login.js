@@ -35,9 +35,10 @@ const Login = () => {
   };
   const handleGoogleLogin = () => {
     loginWithGoogle()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
         toast.success("Signin Success with Google");
-        navigate(from, { replace: true });
+        JWTAuthToken(user, navigate, from);
       })
       .catch((error) => {
         toast.error(error.message);

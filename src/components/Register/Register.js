@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import loginpage from "../../assets/loginpage.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import JWTAuthToken from "../../APIs/JWTAuthToken";
 
 const Register = () => {
   const { createUserAccount, updateUserAccount, loading, setLoading } =
@@ -45,7 +46,7 @@ const Register = () => {
             toast.error(err.message);
           });
         toast.success(user?.displayName, "Account create success");
-        navigate(from, { replace: true });
+        JWTAuthToken(user, navigate, from);
       })
       .catch((err) => {
         toast.error(err.message);
