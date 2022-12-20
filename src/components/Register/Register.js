@@ -113,6 +113,7 @@ const Register = () => {
                     type="text"
                     placeholder="Your name"
                     className="input input-bordered"
+                    name="name"
                   />
                 </div>
                 <div className="form-control">
@@ -125,6 +126,7 @@ const Register = () => {
                     type="text"
                     placeholder="Your photoURL"
                     className="input input-bordered"
+                    name="photoURL"
                   />
                 </div>
                 <div className="form-control">
@@ -134,9 +136,10 @@ const Register = () => {
                   <input
                     defaultValue={email}
                     onChange={handleEmailChange}
-                    type="text"
+                    type="email"
                     placeholder="Your email"
                     className="input input-bordered"
+                    name="email"
                   />
                 </div>
                 <div className="form-control">
@@ -146,9 +149,10 @@ const Register = () => {
                   <input
                     defaultValue={password}
                     onChange={handlePasswordChange}
-                    type="text"
+                    type="password"
                     placeholder="Your password"
                     className="input input-bordered"
+                    name="password"
                   />
                 </div>
                 <div className="form-control mt-6">

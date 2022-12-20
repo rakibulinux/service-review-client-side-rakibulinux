@@ -116,9 +116,10 @@ const Login = () => {
                   <input
                     defaultValue={email}
                     onChange={handleEmailChange}
-                    type="text"
+                    type="email"
                     placeholder="email"
                     className="input input-bordered"
+                    name="email"
                   />
                 </div>
                 <div className="form-control">
@@ -128,9 +129,10 @@ const Login = () => {
                   <input
                     defaultValue={password}
                     onChange={handlePasswordChange}
-                    type="text"
+                    type="password"
                     placeholder="password"
                     className="input input-bordered"
+                    name="password"
                   />
                 </div>
                 <div className="form-control mt-6">
