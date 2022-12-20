@@ -8,8 +8,13 @@ import toast from "react-hot-toast";
 import JWTAuthToken from "../../APIs/JWTAuthToken";
 
 const Login = () => {
-  const { loginUserAccount, resetUserPassword, loginWithGoogle, loading } =
-    useContext(AuthContext);
+  const {
+    loginUserAccount,
+    resetUserPassword,
+    loginWithGoogle,
+    loading,
+    setLoading,
+  } = useContext(AuthContext);
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -31,6 +36,7 @@ const Login = () => {
       })
       .catch((error) => {
         toast.error(error.message);
+        setLoading(false);
       });
   };
   const handleGoogleLogin = () => {
@@ -55,13 +61,13 @@ const Login = () => {
         toast.error(error.message);
       });
   };
-
   const handleEmailChange = (e) => {
     setUserInfo({ ...userInfo, email: e.target.value });
   };
   const handlePasswordChange = (e) => {
     setUserInfo({ ...userInfo, password: e.target.value });
   };
+
   if (loading) {
     return (
       <div className="flex h-screen w-screen items-center justify-center">
@@ -155,8 +161,8 @@ const Login = () => {
               <img className="w-6 mr-2" src={googleLogo} alt="" />{" "}
               <span className="font-semibold">Continue with Google</span>
             </button>
-            <div className="my-10">
-              <span>New to Online Order? </span>
+            <div className="my-10 pl-6">
+              <span>New to Online Review? </span>
               <Link className="text-green-250 font-semibold" to="/register">
                 Register
               </Link>

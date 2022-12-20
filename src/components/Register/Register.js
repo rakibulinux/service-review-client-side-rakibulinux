@@ -50,6 +50,7 @@ const Register = () => {
       })
       .catch((err) => {
         toast.error(err.message);
+        setLoading(false);
       })
       .finally(() => {
         setLoading(false);
